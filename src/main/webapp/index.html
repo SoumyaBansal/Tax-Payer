@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="taxPayerModule" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+
+
+<link href="styles/bootstrap.css" rel="stylesheet" />
+<link href="styles/bootstrap-theme.min.css" rel="stylesheet" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="libs/taxPayerController.js"></script>
+
+</head>
+<body ng-controller="taxPayerController">
+	<form name=taxPayerForm>
+		<div class="panel panel-primary">
+			<h3 class="panel-heading">Tax Payer Form</h3>
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4" class="form-group">
+
+
+							<label>Name</label>
+							<input type="text" name="name" ng-attr-id="{{'name'}}" placeholder="Enter your full name"
+								class="form-control" ng-model="data.name" required />
+							<span class="help-block" ng-show="taxPayerForm.name.$error.required">Required</span>
+
+
+
+							<label>Address</label>
+							<textarea rows="4" cols="50" name="address" class="form-control"
+								placeholder="Enter your permanent address"
+								ng-model="data.address" ng-attr-id="{{'address'}}" required> </textarea>
+							<span class="help-block"
+								ng-show="taxPayerForm.address.$error.required">Required</span>
+
+							<label>PAN
+								No</label>
+							<input type="text" name="panNo" class="form-control"
+								placeholder="10 digits pan card number" ng-model="data.panNo"
+								ng-attr-id="{{'panNo'}}" required />
+							<span class="help-block"
+								ng-show="taxPayerForm.panNo.$error.required">Required</span>
+
+							<label>DOB</label>
+							<input type="text" name="dob" placeholder="dd-mm-yyyy"
+								class="form-control" ng-model="data.dob" ng-attr-id="{{'dob'}}"
+								required />
+							<span class="help-block"
+								ng-show="taxPayerForm.dob.$error.required">Required</span>
+
+
+							<label>Assessment Year</label>
+							<input type="number" name="assessmentYear"
+								class="form-control" ng-model="data.assessmentYear"
+								placeholder="yyyy" min="1900" max="2050"
+								ng-attr-id="{{'assessmentYear'}}" required />
+							<span	class="help-block"
+								ng-show="taxPayerForm.assessmentYear.$error.required">Required</span>
+
+							<label>Income</label>
+							<input type="number" name="income"
+								class="form-control" placeholder="enter in Indian currency"
+								ng-model="data.income" ng-attr-id="{{'income'}}" required />
+							<span
+								class="help-block" ng-show="taxPayerForm.income.$error.required">Required</span>
+
+							<label>TDS</label> <input type="number" name="tds"
+								class="form-control" ng-model="data.tds" ng-attr-id="{{'tds'}}"
+								required />
+							<span class="help-block"
+								ng-show="taxPayerForm.tds.$error.required">Required</span>
+
+
+							 <label>Tax Deduction</label>
+							<input type="number" name="taxDeduction" class="form-control" ng-model="data.taxDeduction"
+								ng-attr-id="{{'taxDeduction'}}" required />
+							<span
+								class="help-block"
+								ng-show="taxPayerForm.taxDeduction.$error.required"
+								ng-show="taxPayerForm.taxDeduction.$number">Required</span>
+
+
+							<button class="btn btn-xs btn-primary"
+								ng-click="AddTaxPayer(data)">Save</button>
+							<button class="btn btn-xs btn-primary" ng-click="cancel()">
+								Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</form>
+</body>
+</html>
